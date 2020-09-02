@@ -1,0 +1,13 @@
+sudo fdisk -l
+sudo apt-get update -y
+sudo apt-get install dislocker
+sudo mkdir /media/bitlocker
+sudo mkdir /media/mount
+sudo fdisk -l
+sudo dislocker -r -V /dev/sda7 -u -- /media/bitlocker
+sudo mount -r -o loop /media/bitlocker/dislocker-file /media/mount
+sudo gedit /usr/local/bin/bitlockerunlock.sh
+cat /usr/local/bin/bitlockerunlock.sh
+sudo chmod +x /usr/local/bin/bitlockerunlock.sh
+sudo fdisk -l
+sudo bitlockerunlock.sh
